@@ -1,10 +1,12 @@
-    @extends('pagPlantilla')
+@extends('pagPlantilla')
 
-    @section('titulo')
-        <h1>Pagina Galeria</h1>
+@section('titulo')
+    <h1>PAGINA DE GALERIA </h1>
+@endsection
 
-    @endsection
+@section('seccion')
+    <h3>Este es el codigo de la foto . {{$valor}} ... {{$otro}} </h3>
+@endsection
 
-    @section('seccion')
-        <h3>Este el el codigo de la foto. {{$valor}} ...</h3>
-    @endsection
+
+

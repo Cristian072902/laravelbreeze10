@@ -6,9 +6,14 @@ use App\Http\Controllers\PagesController;
 
 Route::get('/', [PagesController::class, 'fnIndex']) -> name('xInicio');
 
+Route::get('/detalle/{id}', [PagesController::class, 'fnEstDetalle'])->name('Estudiante.xDetalle');
+
 Route::get('/galeria/{numero?}', [PagesController::class, 'fnGaleria']) -> where('numero', '[0-9]+') -> name('xGaleria');
 
-Route::get('/lista', [PagesController::class, 'fnlista']) -> name('xLista');
+Route::get('/lista', [PagesController::class, 'fnLista']) -> name('xLista');
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +25,7 @@ Route::get('/lista', [PagesController::class, 'fnlista']) -> name('xLista');
 |
 */
 /*
+//router,metodo de envio/la ruta
 Route::get('/', function () {
     return view('welcome');
 }) -> name('xInicio');
@@ -27,24 +33,29 @@ Route::get('/', function () {
 
 
 Route::get('/saludo', function () {
-    return "Hola mundo desde Laravel xd....";
+    return "Hola mundo ... desde laravel.... LUIS SAMUEL VASQUEZ LABRA";
 });
 
-Route::get('/galeria/{numero?}', function ($numero=null) {
+/*
+//Route::get('/galeria/{numero?}', function ($numero=null) {
+Route::get('/galeria/{numero}', function ($numero) {
     return "Este es el codigo de la foto: ".$numero;
 }) -> where('numero', '[0-9]+');
 
-Route ::view('/galeria', 'pagGaleria', ['valor' => 15]) -> name('xGaleria');
+*/
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+/*
 
-Route::get('/lista', function (){
+Route::view('/galeria', 'pagGaleria', ['valor' => 15]) -> name('xGaleria');
+
+
+Route::get('/lista', function () {
     return view('pagLista');
 }) -> name('xLista');
+
 */
-
-Route::get('/dashboard', function (){
-    return view('dashboard');
-}) -> middleware(['auth', 'verified'])->name('dashboard');
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
