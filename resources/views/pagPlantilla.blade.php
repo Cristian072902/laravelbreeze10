@@ -11,6 +11,7 @@
         <a href="{{ route('xInicio') }}" class="btn btn-primary">Inicio</a>
         <a href="{{ route('xGaleria') }}" class="btn btn-warning">Galeria</a>
         <a href="{{ route('xLista') }}" class="btn btn-success">Lista</a>
+        <a href="{{ route('xListaSeguimiento') }}" class="btn btn-primary">Seguimiento</a>
     </div>
     
     <div class="container my-4">
